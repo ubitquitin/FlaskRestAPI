@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS RestData;
+
+USE RestData;
+
 DROP TABLE IF EXISTS RestData.menuitems;
 DROP TABLE IF EXISTS RestData.menus;
 DROP TABLE IF EXISTS RestData.restaurants;
@@ -25,5 +29,3 @@ CREATE TABLE RestData.menuitems (
 PRIMARY KEY (id),
 FOREIGN KEY (menuid) REFERENCES menus(id) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3000 DEFAULT CHARSET=latin1;
-
-
