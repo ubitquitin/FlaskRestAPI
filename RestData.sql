@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS restapitest.menuitems;
-DROP TABLE IF EXISTS restapitest.menus;
-DROP TABLE IF EXISTS restapitest.restaurants;
+DROP TABLE IF EXISTS RestData.menuitems;
+DROP TABLE IF EXISTS RestData.menus;
+DROP TABLE IF EXISTS RestData.restaurants;
 
 CREATE TABLE RestData.restaurants (
   id bigint(20) NOT NULL AUTO_INCREMENT,
