@@ -1,24 +1,34 @@
 from flask import Flask, url_for
+from flask_caching import Cache
 from flask import Response
 import logging
 import json
 import collections
 import pymysql
 from databasemanager import DatabaseManager
+import time
 
 app = Flask(__name__)
 
 file_handler = logging.FileHandler('restaurants.log')
 app.logger.addHandler(file_handler)
 app.logger.setLevel(logging.INFO)
+cache = Cache(app,config={'CACHE_TYPE': 'simple'})
+cache.init_app(app)
 
+@app.route('/cachetest')
+@cache.cached(timeout=10)
+def test():
+	return time.ctime()
+ 
 @app.route('/')
 def api_root():
-    return 'Welcome'
+    return 'Hello and Welcome to my Restaurant API'
 
 
 ####################################################################restaurants####################
 @app.route('/restaurants',methods = ['GET','POST'])
+@cache.cached(timeout=60)
 def api_restaurants():
 	restaurant_map = DatabaseManager.getRestaurants(app.logger)
 	objects_list = []
@@ -33,6 +43,7 @@ def api_restaurants():
 
 
 @app.route('/restaurants/<restaurantname>',methods = ['POST'])
+@cache.cached(timeout=60)
 def api_add_restaurant(restaurantname):
 	id = DatabaseManager.addRestaurant(app.logger,restaurantname)
 	result = 'Restaurant added. URL ' + url_for('api_restaurants') + '/' + restaurantname
@@ -40,6 +51,7 @@ def api_add_restaurant(restaurantname):
 
 	
 @app.route('/restaurants/<restaurantname>',methods = ['GET'])
+@cache.cached(timeout=60)
 def api_get_restaurants(restaurantname):
 	restaurant_map = DatabaseManager.getRestaurants(app.logger)
 	result = 'Uknown restaurant name does not exist'
@@ -48,6 +60,7 @@ def api_get_restaurants(restaurantname):
 	return result
 
 @app.route('/restaurants/<restaurantname>',methods = ['DELETE'])
+@cache.cached(timeout=60)
 def api_del_restaurant(restaurantname):
 	ret = DatabaseManager.delRestaurant(app.logger,restaurantname)
 	result = 'Unable to delete restaurant named ' + restaurantname
@@ -58,6 +71,7 @@ def api_del_restaurant(restaurantname):
 #############################################################################################menus##
 
 @app.route('/restaurants/<restaurantname>/menus',methods = ['GET','POST'])
+@cache.cached(timeout=60)
 def api_restaurant_menus(restaurantname):
         menu_map = DatabaseManager.getRestaurantMenus(app.logger,restaurantname)
         objects_list = []
@@ -72,6 +86,7 @@ def api_restaurant_menus(restaurantname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>',methods = ['POST'])
+@cache.cached(timeout=60)
 def api_add_restaurant_menu(restaurantname,menuname):
         id = DatabaseManager.addRestaurantMenu(app.logger,restaurantname,menuname)
 	result = 'Restaurant does not exist!'
@@ -82,6 +97,7 @@ def api_add_restaurant_menu(restaurantname,menuname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>',methods = ['GET'])
+@cache.cached(timeout=60)
 def api_get_restaurant_menu(restaurantname,menuname):
         menu_map = DatabaseManager.getRestaurantMenus(app.logger,restaurantname)
         result = 'Unknown menu, name does not exist'
@@ -90,6 +106,7 @@ def api_get_restaurant_menu(restaurantname,menuname):
         return result
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>',methods = ['DELETE'])
+@cache.cached(timeout=60)
 def api_del_restaurant_menu(restaurantname,menuname):
 	result = 'Menu not found'
 	menu_map = DatabaseManager.getRestaurantMenus(app.logger,restaurantname)
@@ -106,6 +123,7 @@ def api_del_restaurant_menu(restaurantname,menuname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>/menuitems',methods = ['GET','POST'])
+@cache.cached(timeout=60)
 def api_restaurant_menu_items(restaurantname,menuname):
         menuitems_map = DatabaseManager.getRestaurantMenuItems(app.logger,restaurantname,menuname)
         objects_list = []
@@ -120,6 +138,7 @@ def api_restaurant_menu_items(restaurantname,menuname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>/menuitems/<menuitemname>/<size>/<price>',methods = ['POST'])
+@cache.cached(timeout=60)
 def api_add_restaurant_menu_item(restaurantname,menuname,menuitemname,size,price):
         id = DatabaseManager.addRestaurantMenuItem(app.logger,restaurantname,menuname,menuitemname,size,price)
         result = 'Restaurant does not exist!'
@@ -133,6 +152,7 @@ def api_add_restaurant_menu_item(restaurantname,menuname,menuitemname,size,price
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>/menuitems/<menuitemname>',methods = ['GET'])
+@cache.cached(timeout=60)
 def api_get_restaurant_menu_item(restaurantname,menuname,menuitemname):
         menuitems_map = DatabaseManager.getRestaurantMenuItem(app.logger,restaurantname,menuname,menuitemname)
 	objects_list = []
@@ -149,6 +169,7 @@ def api_get_restaurant_menu_item(restaurantname,menuname,menuitemname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>/menuitems/<menuitemname>',methods = ['DELETE'])
+@cache.cached(timeout=60)
 def api_del_restaurant_menu_item(restaurantname,menuname,menuitemname):
         result = 'Menuitem not found'
         menuitem_map = DatabaseManager.getRestaurantMenuItems(app.logger,restaurantname,menuname)
