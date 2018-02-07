@@ -53,11 +53,11 @@ echo " "
 echo "curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus"
 curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus
 echo " "
-echo "curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/Burrito/Medium/Spicy"
-curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/Burrito/Medium/Spicy
+echo "curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/Burrito/Medium/20.00"
+curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/Burrito/Medium/20.00
 echo " "
-echo "curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl/Large/Mild"
-curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl/Large/Mild
+echo "curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl/Large/5.99"
+curl -X POST http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl/Large/5.99
 echo " "
 echo "curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner"
 curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner
