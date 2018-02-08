@@ -43,8 +43,9 @@ def api_restaurants():
 
 
 @app.route('/restaurants/<restaurantname>',methods = ['POST'])
-@cache.cached(timeout=60)
 def api_add_restaurant(restaurantname):
+	with app.app_context():
+		cache.clear()
 	id = DatabaseManager.addRestaurant(app.logger,restaurantname)
 	result = 'Restaurant added. URL ' + url_for('api_restaurants') + '/' + restaurantname
 	return result
@@ -60,8 +61,9 @@ def api_get_restaurants(restaurantname):
 	return result
 
 @app.route('/restaurants/<restaurantname>',methods = ['DELETE'])
-@cache.cached(timeout=60)
 def api_del_restaurant(restaurantname):
+	with app.app_context():
+                cache.clear()
 	ret = DatabaseManager.delRestaurant(app.logger,restaurantname)
 	result = 'Unable to delete restaurant named ' + restaurantname
 	if ret:
@@ -86,8 +88,9 @@ def api_restaurant_menus(restaurantname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>',methods = ['POST'])
-@cache.cached(timeout=60)
 def api_add_restaurant_menu(restaurantname,menuname):
+	with app.app_context():
+                cache.clear()
         id = DatabaseManager.addRestaurantMenu(app.logger,restaurantname,menuname)
 	result = 'Restaurant does not exist!'
 	restaurant_map = DatabaseManager.getRestaurants(app.logger)
@@ -106,8 +109,9 @@ def api_get_restaurant_menu(restaurantname,menuname):
         return result
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>',methods = ['DELETE'])
-@cache.cached(timeout=60)
 def api_del_restaurant_menu(restaurantname,menuname):
+	with app.app_context():
+                cache.clear()
 	result = 'Menu not found'
 	menu_map = DatabaseManager.getRestaurantMenus(app.logger,restaurantname)
         if menuname in menu_map.values():
@@ -138,8 +142,9 @@ def api_restaurant_menu_items(restaurantname,menuname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>/menuitems/<menuitemname>/<size>/<price>',methods = ['POST'])
-@cache.cached(timeout=60)
 def api_add_restaurant_menu_item(restaurantname,menuname,menuitemname,size,price):
+	with app.app_context():
+                cache.clear()
         id = DatabaseManager.addRestaurantMenuItem(app.logger,restaurantname,menuname,menuitemname,size,price)
         result = 'Restaurant does not exist!'
 	restaurant_map = DatabaseManager.getRestaurants(app.logger)
@@ -169,8 +174,9 @@ def api_get_restaurant_menu_item(restaurantname,menuname,menuitemname):
 
 
 @app.route('/restaurants/<restaurantname>/menus/<menuname>/menuitems/<menuitemname>',methods = ['DELETE'])
-@cache.cached(timeout=60)
 def api_del_restaurant_menu_item(restaurantname,menuname,menuitemname):
+	with app.app_context():
+                cache.clear()
         result = 'Menuitem not found'
         menuitem_map = DatabaseManager.getRestaurantMenuItems(app.logger,restaurantname,menuname)
         if menuitemname in menuitem_map.values():
