@@ -53,6 +53,7 @@ Author: ROHAN KHOPKAR (khopkar.rohan@gmail.com)
       MYSQLPASS = "Toragpwns96"
      
    b) chmod +x unittests.py
+   
       chmod +x restaurant.py
       
       ./restaurant.py 
