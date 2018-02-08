@@ -1,9 +1,9 @@
 # FlaskRestAPI
-==========================================
-README FOR REST API RESTAURANT EXAMPLE USING PYTHON AND FLASK
+# README FOR REST API RESTAURANT EXAMPLE USING PYTHON AND FLASK
+
 
 Author: ROHAN KHOPKAR (khopkar.rohan@gmail.com)
-==========================================
+
 
 1. Overview
 
