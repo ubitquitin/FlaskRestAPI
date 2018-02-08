@@ -1,0 +1,126 @@
+ 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    38  100    38    0     0   2748      0 --:--:-- --:--:-- --:--:--  2923
+Hello and Welcome to my Restaurant API 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/BostonMarket
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    47  100    47    0     0   5179      0 --:--:-- --:--:-- --:--:--  5222
+Restaurant added. URL /restaurants/BostonMarket 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/NafNaf
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    41  100    41    0     0   4838      0 --:--:-- --:--:-- --:--:--  5125
+Restaurant added. URL /restaurants/NafNaf 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    43  100    43    0     0   4889      0 --:--:-- --:--:-- --:--:--  5375
+Restaurant added. URL /restaurants/Chipotle 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/McDonalds
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    44  100    44    0     0   5124      0 --:--:-- --:--:-- --:--:--  5500
+Restaurant added. URL /restaurants/McDonalds 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/BurgerKing
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    45  100    45    0     0   5203      0 --:--:-- --:--:-- --:--:--  5625
+Restaurant added. URL /restaurants/BurgerKing 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   185  100   185    0     0  26877      0 --:--:-- --:--:-- --:--:-- 30833
+[{"id": "1004", "name": "BurgerKing"}, {"id": "1003", "name": "McDonalds"}, {"id": "1002", "name": "Chipotle"}, {"id": "1001", "name": "NafNaf"}, {"id": "1000", "name": "BostonMarket"}] 
+curl -X DELETE http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/NafNaf
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    44  100    44    0     0   5217      0 --:--:-- --:--:-- --:--:--  5500
+Successfully deleted restaurant named NafNaf 
+curl -X DELETE http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/McDonalds
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    47  100    47    0     0   5412      0 --:--:-- --:--:-- --:--:--  5875
+Successfully deleted restaurant named McDonalds 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   114  100   114    0     0  15497      0 --:--:-- --:--:-- --:--:-- 16285
+[{"id": "1004", "name": "BurgerKing"}, {"id": "1002", "name": "Chipotle"}, {"id": "1000", "name": "BostonMarket"}] 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    52  100    52    0     0   7935      0 --:--:-- --:--:-- --:--:--  8666
+Restaurant name is Chipotle and exists in the system 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Breakfast
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    53  100    53    0     0   5057      0 --:--:-- --:--:-- --:--:--  4818
+Menu added. URL /restaurants/Chipotle/menus/Breakfast 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Lunch
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    49  100    49    0     0   4885      0 --:--:-- --:--:-- --:--:--  5444
+Menu added. URL /restaurants/Chipotle/menus/Lunch 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    50  100    50    0     0   4941      0 --:--:-- --:--:-- --:--:--  5000
+Menu added. URL /restaurants/Chipotle/menus/Dinner 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   104  100   104    0     0  14955      0 --:--:-- --:--:-- --:--:-- 17333
+[{"id": "2002", "name": "Dinner"}, {"id": "2000", "name": "Breakfast"}, {"id": "2001", "name": "Lunch"}] 
+curl -X DELETE http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Breakfast
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    72  100    72    0     0   7300      0 --:--:-- --:--:-- --:--:--  8000
+Successfully deleted menu named Breakfast from restaurant named Chipotle 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    67  100    67    0     0   9116      0 --:--:-- --:--:-- --:--:--  9571
+[{"id": "2002", "name": "Dinner"}, {"id": "2001", "name": "Lunch"}] 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems/Burrito/Medium/20.00
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    55  100    55    0     0   4522      0 --:--:-- --:--:-- --:--:--  4583
+Menu item added. URL /restaurants/Chipotle/menus/Dinner 
+curl -X POST http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl/Large/5.99
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    55  100    55    0     0   4668      0 --:--:-- --:--:-- --:--:--  5000
+Menu item added. URL /restaurants/Chipotle/menus/Dinner 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    69  100    69    0     0   9976      0 --:--:-- --:--:-- --:--:-- 11500
+Menu name is Dinner from restaurant Chipotle and exists in the system 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    71  100    71    0     0  10479      0 --:--:-- --:--:-- --:--:-- 11833
+[{"id": "3001", "name": "BeefBowl"}, {"id": "3000", "name": "Burrito"}] 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems/Burrito
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    70  100    70    0     0  10149      0 --:--:-- --:--:-- --:--:-- 11666
+[{"id": "3000", "name": "Burrito", "size": "Medium", "price": "20.0"}] 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    70  100    70    0     0  10330      0 --:--:-- --:--:-- --:--:-- 11666
+[{"id": "3001", "name": "BeefBowl", "size": "Large", "price": "5.99"}] 
+curl -X DELETE http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems/BeefBowl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    97  100    97    0     0   9725      0 --:--:-- --:--:-- --:--:-- 10777
+Successfully deleted menu item named BeefBowl from restaurant named Chipotle in menu named Dinner 
+curl -X GET http://ec2-13-58-211-147.us-east-2.compute.amazonaws.com:5000/restaurants/Chipotle/menus/Dinner/menuitems
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    35  100    35    0     0   5156      0 --:--:-- --:--:-- --:--:--  5833
+[{"id": "3000", "name": "Burrito"}] 

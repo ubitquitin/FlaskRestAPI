@@ -9,7 +9,8 @@ DROP TABLE IF EXISTS RestData.restaurants;
 CREATE TABLE RestData.restaurants (
   id bigint(20) NOT NULL AUTO_INCREMENT,
   name varchar(100),
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+CONSTRAINT uk_restaurant UNIQUE (name)
 ) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=latin1;
 
 CREATE TABLE RestData.menus (
@@ -17,6 +18,7 @@ CREATE TABLE RestData.menus (
   name varchar(100),
   restaurantid bigint(20),
 PRIMARY KEY (`id`),
+CONSTRAINT uk_menu UNIQUE (name,restaurantid),
 FOREIGN KEY (restaurantid) REFERENCES restaurants(id) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2000 DEFAULT CHARSET=latin1;
 
@@ -27,5 +29,7 @@ CREATE TABLE RestData.menuitems (
   size varchar(30),
   price double,
 PRIMARY KEY (id),
+CONSTRAINT uk_menuitem UNIQUE (name,menuid),
 FOREIGN KEY (menuid) REFERENCES menus(id) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3000 DEFAULT CHARSET=latin1;
+

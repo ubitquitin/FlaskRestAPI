@@ -1,9 +1,11 @@
 #!/bin/bash
 SERVER=ec2-13-58-211-147.us-east-2.compute.amazonaws.com
 PORT=5000
+
+mysql -h localhost --user=ec2-user --password=Toragpwns96 < ./RestData.sql
 echo " "
-echo "curl -X POST http://$SERVER:$PORT/"
-curl -X POST http://$SERVER:$PORT/
+echo "curl -X GET http://$SERVER:$PORT/"
+curl -X GET http://$SERVER:$PORT/
 echo " "
 echo "curl -X POST http://$SERVER:$PORT/restaurants/BostonMarket"
 curl -X POST http://$SERVER:$PORT/restaurants/BostonMarket
@@ -47,8 +49,8 @@ echo " "
 echo "curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus"
 curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus
 echo " "
-echo "curl -X DELETE http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner"
-curl -X DELETE http://$SERVER:$PORT/restaurants/Chipotle/menus/Dinner
+echo "curl -X DELETE http://$SERVER:$PORT/restaurants/Chipotle/menus/Breakfast"
+curl -X DELETE http://$SERVER:$PORT/restaurants/Chipotle/menus/Breakfast
 echo " "
 echo "curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus"
 curl -X GET http://$SERVER:$PORT/restaurants/Chipotle/menus
