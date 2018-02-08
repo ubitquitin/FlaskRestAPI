@@ -67,15 +67,14 @@ Author: ROHAN KHOPKAR (khopkar.rohan@gmail.com)
 5. Additional Comments 
     a.) Why Python Flask?
           Here are some good features of Flask, based on my experience of using it for a few personal projects:
-            i.)The documentation and developer tools are excellent and OpenShift cloud has build-in support for it with free accounts
-            ii.) The Flask "core" is simple, but there are a large number of extentions which integrate with it very well.
+            i.) Documentation and developer tools
+            ii.) The Flask "core" is simple, but there are a large number of extensions which integrate with it very well.
             iii.) Flask is actively maintained and developed
             iv.) Scalability, Simplicity and useful Python libraries
-            v.) Extensive documentation :)
     b.) Database concerns
             i.) Flash-caching was used to implement server side caching on GET operations.
             ii.) Cache clearing was implemented for POST and DELETE operations.
-            iii.) For scalability, database load balancing software would be implemented.
+            iii.) For scalability, replication of database instances could be implemented.
   
 
 Thats all folks !! 
